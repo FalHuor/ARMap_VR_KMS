@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PinManager : MonoBehaviour
@@ -33,7 +34,8 @@ public class PinManager : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-            GetMousePosition();
+            if (!EventSystem.current.IsPointerOverGameObject()) 
+                GetMousePosition();
     }
 
     public void GetMousePosition()
